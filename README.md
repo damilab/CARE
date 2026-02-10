@@ -8,10 +8,14 @@
   <a href="https://openreview.net/forum?id=Ryc7jKP6H9&noteId=LjNdgM6vZg">📄 Paper (OpenReview)</a>
 </p>
 
-## 🔍 Overview
+<p align="center">
+  <img src="assets/intro.png" width="70%">
+</p>
+
+## 🔍 Overview of ReCARE
 
 <p align="center">
-  <img src="assets/overview.png" width="100%">
+  <img src="assets/overview.png" width="85%">
 </p>
 
 This repository provides the **official implementation of ReCARE**, a diffusion model unlearning framework that **removes a target concept while explicitly preserving benign co-occurring concepts (CARE)**.
