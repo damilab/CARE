@@ -23,8 +23,8 @@ Existing unlearning methods often suppress benign concepts that naturally co-occ
 - **Integrating the CARE-set into unlearning training** to preserve co-occurring semantics
 
 
-## 🛠️ Installation
-### 1. Environment Setup
+## 🛠️ Environment Setup
+
 ```shell
 git clone https://github.com/damilab/CARE.git
 cd CARE
