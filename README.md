@@ -8,12 +8,12 @@
   <a href="https://openreview.net/forum?id=Ryc7jKP6H9&noteId=LjNdgM6vZg">📄 Paper (OpenReview)</a>
 </p>
 
+## 🔍 Overview
+
 <p align="center">
   <img src="assets/overview.png" width="100%">
 </p>
 
-
-## 🔍 Overview
 This repository provides the **official implementation of ReCARE**, a diffusion model unlearning framework that **removes a target concept while explicitly preserving benign co-occurring concepts (CARE)**.
 
 Existing unlearning methods often suppress benign concepts that naturally co-occur with the erase target (e.g., erasing *nudity* unintentionally removes *person*).
