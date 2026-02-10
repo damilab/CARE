@@ -22,8 +22,8 @@ Existing unlearning methods often suppress benign concepts that naturally co-occ
 - **Automatically constructing a CARE-set** from target images
 - **Integrating the CARE-set into unlearning training** to preserve co-occurring semantics
 
-
-## 🛠️ Environment Setup
+## Instructions for Code Usage
+### 🛠️ Environment Setup
 
 ```shell
 git clone https://github.com/damilab/CARE.git
@@ -37,7 +37,7 @@ conda activate recare
 pip install git+https://github.com/openai/CLIP.git
 ```
 
-## 🎨 Image Generation
+### 🎨 Image Generation
 Generate images containing the erase target. These images are later used both for CARE-set construction and unlearning training.
 
 ```shell
@@ -47,7 +47,7 @@ python generate_images.py --output_dir data/nudity/images/ --prompt "A photo of 
 # Style Concept (Van Gogh)
 python generate_images.py --output_dir data/vangogh/images/ --prompt "A painting in the style of Van Gogh" --num_images 500
 ```
-## 📚 CARE Dictionary Construction
+### 📚 CARE Dictionary Construction
 Construct the CARE-set, a curated vocabulary of benign co-occurring concepts.
 
 ```shell
@@ -60,7 +60,7 @@ python utils/dictionary.py --reference_word 'Van Gogh' --image_dir data/vangogh/
 
 This step produces a ```careset.json``` file, which serves as the CARE-set anchor during training.
 
-## 🚀 Training
+### 🚀 Training
 ```shell
 # Object Concept (Nudity)
 python -W ignore train.py --erase_concept 'nudity' --train_method noxattn --train_data_dir data/nudity/images/ --learnable_property 'object' --initializer_token 'person' --output_dir recare_weights/nudity --compositional_guidance_scale 2 --n_iterations 2 --num_of_adv_concepts 2 --anchor_concept_path data/nudity/careset.json
@@ -69,7 +69,7 @@ python -W ignore train.py --erase_concept 'nudity' --train_method noxattn --trai
 python -W ignore train.py --erase_concept 'Van Gogh' --train_method noxattn --train_data_dir data/vangogh/images/ --learnable_property 'style' --initializer_token 'art' --output_dir recare_weights/vangogh --compositional_guidance_scale 2 --n_iterations 2 --num_of_adv_concepts 2 --anchor_concept_path data/vangogh/careset.json
 ```
 
-## 📊 CARE Evaluation
+### 📊 CARE Evaluation
 Evaluate whether benign co-occurring concepts are preserved after unlearning, using the proposed CARE score.
 ```shell
 python metrics/care_eval.py \
